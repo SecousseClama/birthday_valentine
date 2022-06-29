@@ -1,5 +1,6 @@
 import 'package:birthday_valentine/listgift.dart';
 import 'package:flutter/material.dart';
+import 'package:scratcher/scratcher.dart';
 
 class PageGift extends StatefulWidget {
   PageGift({Key? key, required this.day}) : super(key: key);
@@ -21,7 +22,22 @@ class _PageGiftState extends State<PageGift> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(gifts[widget.day].toString()),
+                Text('Gratte pour voir ton cadeau du jour ${widget.day}', style: TextStyle(fontFamily: 'Disney'), textScaleFactor: 2,),
+                Scratcher(
+                  brushSize: 60,
+                  threshold: 100,
+                  color: Colors.red.shade100,
+                  onChange: (value) => value >= 60 ? print('love') : null,
+                  onThreshold: () => print("Threshold reached, you won!"),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    width: 300,
+                    height: 300,
+                    child: Center(child: Text(gifts[widget.day].toString()))
+                    ),
+                )
               ],
             ),
           ),
