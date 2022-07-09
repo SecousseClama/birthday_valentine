@@ -22,7 +22,7 @@ class _PageGiftState extends State<PageGift> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text('Gratte pour voir ton cadeau du jour ${widget.day}', style: TextStyle(fontFamily: 'Disney'), textScaleFactor: 2,),
+                Text('Gratte pour voir ton cadeau du jour ${widget.day + 1}', style: TextStyle(fontFamily: 'Disney'), textScaleFactor: 2,),
                 Scratcher(
                   brushSize: 60,
                   threshold: 100,
