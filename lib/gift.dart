@@ -1,4 +1,7 @@
+// ignore_for_file: must_be_immutable
+
 import 'dart:math';
+import 'package:birthday_valentine/getDocGift.dart';
 import 'package:birthday_valentine/pagegift.dart';
 import 'package:flutter/material.dart';
 
@@ -18,17 +21,18 @@ class _GiftState extends State<Gift> {
   late int birthdayTime;
   late DateTime getBirthday;
   late String dateTime;
+
   canBeOpen() {
-    if(166465440000000 >= birthdayTime){
-      print('OK');
+    if(1999999999999999999 >= birthdayTime){
+      getdocgift(widget.day + 1);
       Navigator.push(context, MaterialPageRoute(builder: (context) => PageGift(day: widget.day)));
     } else {
-      print('NO');
-      print(birthdayTime);
-      print(dateTime);
       final snackBar = SnackBar(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+        behavior: SnackBarBehavior.floating, 
+        elevation: 3,
         backgroundColor: Colors.red.shade400,
-        content: Text('Il faut que tu attendes le $dateTime'),
+        content: Text('Il faut que tu attendes le $dateTime',style: const TextStyle(fontFamily: 'Disney'), textScaleFactor: 1.5,),
       );
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
@@ -59,7 +63,7 @@ class _GiftState extends State<Gift> {
         child:Icon(
           Icons.card_giftcard_rounded,
           color: colors[Random().nextInt(colors.length)], 
-          size: widget.day == 18 ? 85 : 55,
+          size: widget.day + 1 == 19 ? 85 : 55,
         ),
       ),
     );
