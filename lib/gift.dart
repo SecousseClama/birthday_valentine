@@ -16,14 +16,13 @@ class Gift extends StatefulWidget {
 class _GiftState extends State<Gift> {
   bool isHovering = false;
   List<Color> colors = [Colors.white,Colors.red.shade400, Colors.red.shade300];
-  int timenow = int.parse(DateTime.now().millisecondsSinceEpoch.toString());
-  int timestamp = 1664654400000;
+  int timestamp = 1664643600000;
   late int birthdayTime;
   late DateTime getBirthday;
   late String dateTime;
 
   canBeOpen() {
-    if(1999999999999999999 >= birthdayTime){
+    if(9999999999999999 >= birthdayTime){
       getdocgift(widget.day + 1);
       Navigator.push(context, MaterialPageRoute(builder: (context) => PageGift(day: widget.day)));
     } else {
